@@ -7,9 +7,9 @@ int main()  // Ввести два целых числа, вывести в по
 	
     scanf("%d%d", &A, &B );  // Введите через пробел последовательно два числа
 	
-    (A>B) ? printf("%d %d\n", B, A ): printf("%d %d\n", A, B );
+    //  (A>B) ? printf("%d %d\n", B, A ): printf("%d %d\n", A, B );
 
-    //  if (A>B)  { A=A^B; B=A^B; A=A^B; };
+    if (A>B)  { A=A^B; B=A^B; A=A^B; };
 		
     printf("%d %d\n", A, B );
 	

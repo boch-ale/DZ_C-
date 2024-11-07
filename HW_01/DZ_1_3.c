@@ -5,15 +5,13 @@
 
 int main()  
 {
-
-
     printf("   *\n");
-	printf("  ***\n");
-	printf(" *****\n");
-	printf("*******\n");
-	printf(" HHOHH\n");
-	printf(" ZZZZZ\n");
+    printf("  ***\n");
+    printf(" *****\n");
+    printf("*******\n");
+    printf(" HHOHH\n");
+    printf(" ZZZZZ\n");
 
-	return 0;
+    return 0;
 }
 

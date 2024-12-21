@@ -1,9 +1,9 @@
 #include <stdint.h>   // Составить функцию которая меняет в массиве минимальный и максимальный элемент местами.
 #include <stdio.h>    //  Прототип функции void change_max_min(int size, int a[])
-#include <inttypes.h> // 
+#include <inttypes.h> //
 #include <string.h>
 
-#define RIGHT_SHIFT_FOR_INT 31     // количество сдвигаемых разрядов для int
+#define RIGHT_SHIFT_FOR_INT 31 // количество сдвигаемых разрядов для int
 
 //---------------------------------------------------------------------------------------
 int num_Znak(int num) // знак числа, отрицательное или положительное
@@ -29,7 +29,7 @@ void i_to_j_in_arr(int *arr_S, int i, int j) // перемена местами 
 }
 //--------------------------------------------------------------------------------
 int arr_date_Input(int size_arr, int *arr_S) //  заполнение входного массива
-{                                                          // подсчёт отрицательных значений
+{                                            // подсчёт отрицательных значений
     int i, mng_negativ = 0;
 
     for (i = 0; i < size_arr; i++)
@@ -40,9 +40,9 @@ int arr_date_Input(int size_arr, int *arr_S) //  заполнение входн
 }
 
 //--------------------------------------------------------------------------------
-void create_work_Array(int size_arr,  int *arr_S,                             //  заполнение рабочх массивов
-                       int s_arr_neg, int *arr_neg_0, int *arr_neg_idx,       // с отрицательными и положительными
-                       int s_arr_pos, int *arr_pos_0, int *arr_pos_idx)       //  значениями
+void create_work_Array(int size_arr, int *arr_S,                        //  заполнение рабочх массивов
+                       int s_arr_neg, int *arr_neg_0, int *arr_neg_idx, // с отрицательными и положительными
+                       int s_arr_pos, int *arr_pos_0, int *arr_pos_idx) //  значениями
 {
     int i, i_neg = 0, i_pos = 0;
     int temp = 0;
@@ -84,7 +84,7 @@ int sort_array_Negativ(int size_arr, int *arr_work, int *arr_work_idx)
             }
         } // for j
 
-    return *(arr_work_idx + size_arr - 1 ) ;
+    return *(arr_work_idx + size_arr - 1);
 }
 
 //--------------------------------------------------------------------------------
@@ -109,9 +109,9 @@ int sort_array_Positiv(int size_arr, int *arr_work, int *arr_work_idx)
 }
 
 //--------------------------------------------------------------------------------
-void change_max_min(int size_arr, int *arr_S)           // Функция заданная условием задачи
+void change_max_min(int size_arr, int *arr_S) // Функция заданная условием задачи
 {
-    int size_arr_negativ = 0;                      // размерность массива отрицательных значений
+    int size_arr_negativ = 0;                           // размерность массива отрицательных значений
     size_arr_negativ = arr_date_Input(size_arr, arr_S); // заполение входного массива
 
     int size_arr_positiv = size_arr - size_arr_negativ; // размерность массива положительных значений
@@ -126,26 +126,25 @@ void change_max_min(int size_arr, int *arr_S)           // Функция зад
                       size_arr_negativ, arr_work_negativ_0, arr_work_negativ_idx,
                       size_arr_positiv, arr_work_positiv_0, arr_work_positiv_idx); // заполнение рабочих массивов
 
-    int min_element_arr_idx = 0,  max_element_arr_idx = 0;                  
+    int min_element_arr_idx = 0, max_element_arr_idx = 0;
 
     if (size_arr_negativ) // если отрицательные значения есть во входящих данных, то сортировка
     {
-        min_element_arr_idx = sort_array_Negativ(size_arr_negativ, arr_work_negativ_0, arr_work_negativ_idx) ;
+        min_element_arr_idx = sort_array_Negativ(size_arr_negativ, arr_work_negativ_0, arr_work_negativ_idx);
 
-        if (size_arr == size_arr_negativ)  // есди массив состоит полностью из отрицательных чисел
-            max_element_arr_idx = *arr_work_negativ_idx ;
-        else    
-            max_element_arr_idx = sort_array_Positiv(size_arr_positiv, arr_work_positiv_0, arr_work_positiv_idx); 
+        if (size_arr == size_arr_negativ) // есди массив состоит полностью из отрицательных чисел
+            max_element_arr_idx = *arr_work_negativ_idx;
+        else
+            max_element_arr_idx = sort_array_Positiv(size_arr_positiv, arr_work_positiv_0, arr_work_positiv_idx);
     }
     else
-    { // если во входящих данных отрицательных чисел нет, то сортировка положительного массива 
-        max_element_arr_idx = sort_array_Positiv(size_arr_positiv, arr_work_positiv_0, arr_work_positiv_idx); 
-        min_element_arr_idx = *arr_work_positiv_idx ;
+    { // если во входящих данных отрицательных чисел нет, то сортировка положительного массива
+        max_element_arr_idx = sort_array_Positiv(size_arr_positiv, arr_work_positiv_0, arr_work_positiv_idx);
+        min_element_arr_idx = *arr_work_positiv_idx;
     }
-    
-  //  printf("min = %d  max = %d\n", min_element_arr_idx, max_element_arr_idx);
-    i_to_j_in_arr(arr_S, max_element_arr_idx, min_element_arr_idx);  
 
+    //  printf("min = %d  max = %d\n", min_element_arr_idx, max_element_arr_idx);
+    i_to_j_in_arr(arr_S, max_element_arr_idx, min_element_arr_idx);
 }
 
 /*
@@ -161,7 +160,7 @@ int main()
     change_max_min( size_arr, arr_S) ;
 
     for (int i = 0; i < size_arr; i++)   printf(" %d ", *(arr_S + i));
-    
+
 
     return 0;
 }
